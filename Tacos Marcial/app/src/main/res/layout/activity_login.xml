@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center_horizontal"
+    android:background="#FFF9E3">
+
+    <!-- Título optimizado -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="48dp"
+        android:text="Tacos Marcial"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#A6211F"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Correo electrónico"
+        android:inputType="textEmailAddress"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Iniciar Sesión"
+        android:backgroundTint="#C8401A"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="O continúa con"
+        android:textColor="#888888"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnGoogleLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Google"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#555555"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta? "
+            android:textColor="#5D4037"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tvRegistrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regístrate aquí"
+            android:textColor="#A6211F"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+    </LinearLayout>
+
+</LinearLayout>

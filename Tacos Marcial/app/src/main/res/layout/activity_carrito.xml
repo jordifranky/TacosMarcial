@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5EBD3">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🛒 Carrito de Compras"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#B71C1C"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:id="@+id/txtCarritoVacio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="🛒&#10;&#10;Tu carrito está vacío&#10;&#10;Agrega algunos productos del menú"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#6D4C41"
+        android:lineSpacingExtra="6dp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Método de Pago"
+        android:textColor="#B71C1C"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp" />
+
+    <RadioGroup
+        android:id="@+id/rgMetodoPago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:background="#FFF8EC"
+        android:padding="8dp">
+
+        <RadioButton
+            android:id="@+id/rbEfectivo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Efectivo"
+            android:checked="true"
+            android:buttonTint="#C8401A" />
+
+        <RadioButton
+            android:id="@+id/rbTarjeta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tarjeta"
+            android:buttonTint="#C8401A" />
+
+        <RadioButton
+            android:id="@+id/rbYape"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Yape/Plin"
+            android:buttonTint="#C8401A" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="12dp"
+        android:background="#FFF8EC"
+        android:orientation="horizontal"
+        android:padding="14dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total a pagar"
+            android:textColor="#5D4037"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S/ 0.00"
+            android:textColor="#C8401A"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Confirmar Pedido"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#C8401A" />
+
+</LinearLayout>
