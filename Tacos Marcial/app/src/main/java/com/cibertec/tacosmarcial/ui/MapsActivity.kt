@@ -28,7 +28,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Ubicación de Tacos Marcial
+
         val tacosMarcial = LatLng(-12.0464, -77.0428)
 
         mMap.addMarker(
