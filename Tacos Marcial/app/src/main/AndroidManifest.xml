@@ -54,13 +54,22 @@
             android:name=".ui.SeleccionLocalActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.SeleccionDireccionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.CarritoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ResumenCarritoActivity"
             android:exported="false" />
         <activity
             android:name=".ui.HistorialActivity"
             android:exported="false" />
         <activity
             android:name=".ui.HorariosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SeguimientoPedidoActivity"
             android:exported="false" />
 
     </application>

@@ -1,10 +1,10 @@
 package com.cibertec.tacosmarcial.ui
 
 import android.content.Intent
-import android.net.Uri // Necesario para abrir enlaces
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView // Necesario para tus botones de redes
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -29,10 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnLogout = findViewById<Button>(R.id.btnLogout)
         btnLogout.setOnClickListener {
-            sessionManager.logout()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            mostrarAlertaCerrarSesion()
         }
 
         val btnParaLlevar = findViewById<LinearLayout>(R.id.btnParaLlevar)
@@ -48,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         btnADomicilio.setOnClickListener {
             DatosApp.tipoEntrega = "A domicilio"
             actualizarUIEntrega(btnParaLlevar, btnADomicilio)
-            val intent = Intent(this, SeleccionSucursalActivity::class.java)
+            val intent = Intent(this, SeleccionDireccionActivity::class.java)
             startActivity(intent)
         }
 
@@ -57,13 +54,13 @@ class MainActivity : AppCompatActivity() {
         val btnHorarios = findViewById<LinearLayout>(R.id.btnHorarios)
 
         btnMenuDigital.setOnClickListener {
-            val intent = Intent(this, SeleccionSucursalActivity::class.java)
-            startActivity(intent)
+
+            startActivity(Intent(this, MenuActivity::class.java))
         }
 
         btnPedir.setOnClickListener {
-            val intent = Intent(this, SeleccionSucursalActivity::class.java)
-            startActivity(intent)
+
+            startActivity(Intent(this, SeleccionSucursalActivity::class.java))
         }
 
         btnHorarios.setOnClickListener {
@@ -101,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Función auxiliar para abrir cualquier enlace o app
+
     private fun abrirEnlace(url: String) {
         try {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
@@ -119,5 +116,29 @@ class MainActivity : AppCompatActivity() {
             btnRecojo.setBackgroundResource(R.drawable.bg_service_default)
             btnDomicilio.setBackgroundResource(R.drawable.bg_service_selected)
         }
+    }
+
+    private fun mostrarAlertaCerrarSesion() {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        builder.setTitle("Cerrar Sesión")
+        builder.setMessage("¿Estás seguro de que deseas salir de Tacos Marcial?")
+        
+        builder.setPositiveButton("Sí, salir") { _, _ ->
+            sessionManager.logout()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+
+
+        dialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE).setTextColor(android.graphics.Color.parseColor("#A6211F"))
+        dialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_NEGATIVE).setTextColor(android.graphics.Color.GRAY)
     }
 }

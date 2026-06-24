@@ -4,12 +4,12 @@ object DatosApp {
 
     // Todas las sedes reales en SJL
     val listaSucursales = listOf(
-        Sucursal(1, "Sede Los Jardines", "Av. Los Jardines Oeste 15419", "15:30 - 23:50"),
-        Sucursal(2, "Sede Mall Aventura SJL", "Av. Lurigancho 997, Sótano 1", "10:00 - 22:00"),
-        Sucursal(3, "Sede Canto Grande", "Av. Canto Grande (Principal)", "15:30 - 23:50"),
-        Sucursal(4, "Sede Canto Rey", "Av. Wiesse / Canto Rey", "15:30 - 23:50"),
-        Sucursal(5, "Sede Bayóvar", "Av. Bayóvar Principal", "15:30 - 23:50"),
-        Sucursal(6, "Sede Restobar", "San Juan de Lurigancho Centro", "17:00 - 02:00")
+        Sucursal(1, "Sede Los Jardines", "Av. Los Jardines Oeste 15419", "15:30 - 23:50", -12.0028, -77.0055),
+        Sucursal(2, "Sede Mall Aventura SJL", "Av. Lurigancho 997, Sótano 1", "10:00 - 22:00", -12.0165, -77.0005),
+        Sucursal(3, "Sede Canto Grande", "Av. Canto Grande (Principal)", "15:30 - 23:50", -11.9754, -77.0001),
+        Sucursal(4, "Sede Canto Rey", "Av. Wiesse / Canto Rey", "15:30 - 23:50", -11.9564, -77.0012),
+        Sucursal(5, "Sede Bayóvar", "Av. Bayóvar Principal", "15:30 - 23:50", -11.9288, -76.9934),
+        Sucursal(6, "Sede Restobar", "San Juan de Lurigancho Centro", "17:00 - 02:00", -11.9854, -77.0101)
     )
 
     // Carta completa de Tacos Marcial
@@ -48,10 +48,10 @@ object DatosApp {
     // Carrito de compras
     val carrito = mutableListOf<CarritoItem>()
 
-    // Variables globales para rastrear el tipo de despacho elegido
+
     var tipoEntrega: String = "Domicilio"
     var lugarSeleccionado: String = "No especificado"
-    var direccionSeleccionada: String = "" // Nueva variable añadida
+    var direccionSeleccionada: String = ""
 
     fun obtenerPlatosPorCategoria(categoria: String): List<Plato> {
         return menuPlatos.filter {

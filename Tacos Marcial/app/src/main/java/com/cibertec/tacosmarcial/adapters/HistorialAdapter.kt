@@ -26,14 +26,14 @@ class HistorialAdapter(private val listaPedidos: List<HistorialPedido>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pedido = listaPedidos[position]
 
-        // Mostramos el formato: "2x Nombre del Plato"
+
         holder.tvNombre.text = "${pedido.cantidad}x ${pedido.nombrePlato}"
 
-        // Mostramos el precio total sumado (precio unitario * cantidad)
+
         val total = pedido.precio * pedido.cantidad
         holder.tvPrecio.text = "Total: S/ ${"%.2f".format(total)} (${pedido.metodoPago})"
 
-        // Mostramos la fecha
+
         holder.tvFecha.text = pedido.fecha
     }
 

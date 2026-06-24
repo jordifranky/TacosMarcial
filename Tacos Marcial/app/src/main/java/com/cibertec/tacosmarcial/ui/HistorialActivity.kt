@@ -53,7 +53,7 @@ class HistorialActivity : AppCompatActivity() {
             try {
                 val db = AppDatabase.getDatabase(this@HistorialActivity)
                 val lista = db.historialPedidoDao().obtenerTodo()
-                // Mostramos los más recientes primero
+
                 recyclerView.adapter = HistorialAdapter(lista.reversed())
             } catch (e: Exception) {
                 Log.e(tag, "Error al cargar: ${e.message}")

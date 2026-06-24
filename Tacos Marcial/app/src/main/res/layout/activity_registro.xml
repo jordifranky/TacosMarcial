@@ -1,54 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF9E3">
+    android:background="#FFF9E3"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="32dp">
+
+        <ImageView
+            android:id="@+id/ivLogoRegistro"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_circle_white"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:src="@drawable/ic_taco_placeholder" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registro de Usuario"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:text="Crear Cuenta"
             android:textColor="#A6211F"
-            android:layout_marginBottom="20dp"/>
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="Únete a la familia Tacos Marcial"
+            android:textColor="#5D4037"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre completo"/>
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Nombre completo"
+            android:inputType="textPersonName"
+            android:padding="16dp" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Correo"/>
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:padding="16dp" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bg_input_field"
             android:hint="Contraseña"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:padding="16dp" />
 
         <Button
             android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrarme"
-            android:backgroundTint="#C8401A"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#A6211F"
+            android:text="Registrarme ahora"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="20dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnVolverLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:padding="8dp"
+            android:text="Ya tengo cuenta, Iniciar Sesión"
+            android:textColor="#A6211F"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

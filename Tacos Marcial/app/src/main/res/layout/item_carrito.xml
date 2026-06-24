@@ -1,89 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="12dp"
-    android:layout_marginEnd="12dp"
-    android:layout_marginTop="6dp"
-    android:layout_marginBottom="6dp"
-    app:cardBackgroundColor="#FFF8EC"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="6dp"
-    app:strokeColor="#E7D8C4"
-    app:strokeWidth="1dp">
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/tvNombreCarrito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#B71C1C"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvPrecioCarrito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="#6D4C41"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/tvSubtotalCarrito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:textColor="#C8401A"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnMenos"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#C8401A"
-                android:text="-"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
+            <TextView
+                android:id="@+id/tvNombreCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre del Plato"
+                android:textColor="#333333"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvPrecioCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: S/ 0.00"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Controles de Cantidad -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_quantity_controls"
+            android:padding="2dp">
+
+            <ImageButton
+                android:id="@+id/btnMenos"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_remove"
+                app:tint="#A6211F" />
+
+            <TextView
                 android:id="@+id/tvCantidadCarrito"
-                android:layout_width="60dp"
+                android:layout_width="32dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="1"
-                android:textColor="#5D4037"
-                android:textSize="20sp"
+                android:textColor="#222222"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btnMas"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#C8401A"
-                android:text="+"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_add"
+                app:tint="#A6211F" />
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tvSubtotalCarrito"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="S/ 0.00"
+            android:textColor="#A6211F"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-</com.google.android.material.card.MaterialCardView>
+        <ImageButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            app:tint="#FF5252" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

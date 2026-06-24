@@ -26,16 +26,16 @@ class SessionManager(context: Context) {
         }
     }
 
-    // Verifica si el cliente ya está autenticado
+
     fun isLoggedIn(): Boolean = prefs.getBoolean(KEY_IS_LOGGED_IN, false)
 
-    // Recupera el ID del usuario (Ahora esta función existirá y no dará error)
+
     fun getUserId(): Int = prefs.getInt(KEY_USER_ID, -1)
 
-    // Recupera el nombre para mostrarlo en la interfaz
+
     fun getUserName(): String? = prefs.getString(KEY_USER_NAME, null)
 
-    // Destruye la sesión (Cerrar sesión)
+
     fun logout() {
         prefs.edit().clear().apply()
     }

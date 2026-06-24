@@ -28,11 +28,10 @@ class SeleccionLocalActivity : AppCompatActivity() {
         )
 
         rvLocales.adapter = LocalAdapter(listaLocales) { localSeleccionado ->
-            // Guardamos tanto el nombre como la dirección
+
             DatosApp.tipoEntrega = "RECOJO EN TIENDA"
             DatosApp.lugarSeleccionado = localSeleccionado.nombre
-            DatosApp.direccionSeleccionada = localSeleccionado.direccion // Asegúrate de tener esta variable en DatosApp
-
+            DatosApp.direccionSeleccionada = localSeleccionado.direccion
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()

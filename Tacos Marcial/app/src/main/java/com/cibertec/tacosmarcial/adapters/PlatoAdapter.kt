@@ -42,7 +42,7 @@ class PlatoAdapter(
         holder.tvPrecioPlato.text = "S/ ${String.format("%.2f", plato.precio)}"
         holder.tvDescPlato.text = plato.descripcion
 
-        // Lógica para cambiar la imagen según categoría
+
         val imagenRes = when (plato.categoria) {
             "Tacos" -> R.drawable.taco
             "Enchiladas" -> R.drawable.enchiladas
@@ -72,7 +72,11 @@ class PlatoAdapter(
                 DatosApp.carrito.add(CarritoItem(plato = plato, cantidad = 1))
             }
             onPlatoAgregado()
-            Toast.makeText(holder.itemView.context, "${plato.nombre} agregado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                holder.itemView.context,
+                "${plato.nombre} (S/ ${String.format("%.2f", plato.precio)}) agregado",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

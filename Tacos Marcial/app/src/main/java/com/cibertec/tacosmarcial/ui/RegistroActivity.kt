@@ -3,6 +3,7 @@ package com.cibertec.tacosmarcial.ui
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -23,6 +24,11 @@ class RegistroActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
 
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
+        val btnVolverLogin = findViewById<TextView>(R.id.btnVolverLogin)
+
+        btnVolverLogin.setOnClickListener {
+            finish()
+        }
 
         btnRegistrar.setOnClickListener {
 

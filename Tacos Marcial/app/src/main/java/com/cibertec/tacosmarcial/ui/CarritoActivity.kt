@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -27,6 +29,9 @@ class CarritoActivity : AppCompatActivity() {
     private lateinit var rvCarrito: RecyclerView
     private lateinit var btnConfirmar: Button
     private lateinit var rgMetodoPago: RadioGroup
+    private lateinit var cbTerminos: CheckBox
+    private lateinit var tvClienteNombre: TextView
+    private lateinit var tvDireccionEntrega: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,16 +43,32 @@ class CarritoActivity : AppCompatActivity() {
         rvCarrito = findViewById(R.id.rvCarrito)
         btnConfirmar = findViewById(R.id.btnConfirmar)
         rgMetodoPago = findViewById(R.id.rgMetodoPago)
+        cbTerminos = findViewById(R.id.cbTerminos)
+        tvClienteNombre = findViewById(R.id.tvClienteNombre)
+        tvDireccionEntrega = findViewById(R.id.tvDireccionEntrega)
+
+        // Cargar datos reales de sesión y selección
+        val sessionManager = com.cibertec.tacosmarcial.core.SessionManager(this)
+        tvClienteNombre.text = sessionManager.getUserName() ?: "Cliente"
+        tvDireccionEntrega.text = if (DatosApp.tipoEntrega == "Recojo en Tienda") 
+            "Recojo: ${DatosApp.lugarSeleccionado}" 
+            else "Entrega: ${DatosApp.direccionSeleccionada}"
+
+        findViewById<ImageView>(R.id.btnBack).setOnClickListener { finish() }
 
         rvCarrito.layoutManager = LinearLayoutManager(this)
-
-        rvCarrito.adapter = CarritoAdapter(
-            DatosApp.carrito
-        ) {
-            actualizarVista()
-        }
+        rvCarrito.adapter = CarritoAdapter(DatosApp.carrito) { actualizarVista() }
 
         actualizarVista()
+
+        // Lógica de Términos y Condiciones: Bloquear botón si no acepta
+        btnConfirmar.isEnabled = false
+        btnConfirmar.alpha = 0.5f
+
+        cbTerminos.setOnCheckedChangeListener { _, isChecked ->
+            btnConfirmar.isEnabled = isChecked
+            btnConfirmar.alpha = if (isChecked) 1.0f else 0.5f
+        }
 
         btnConfirmar.setOnClickListener {
             guardarPedidoEnHistorial()
@@ -98,7 +119,13 @@ class CarritoActivity : AppCompatActivity() {
                 // Limpiamos la memoria y navegamos
                 DatosApp.carrito.clear()
 
-                val intent = Intent(this@CarritoActivity, PedidoExitosoActivity::class.java)
+                val proximaActivity = if (DatosApp.tipoEntrega == "A domicilio") {
+                    SeguimientoPedidoActivity::class.java
+                } else {
+                    PedidoExitosoActivity::class.java
+                }
+
+                val intent = Intent(this@CarritoActivity, proximaActivity)
                 startActivity(intent)
                 finish()
 

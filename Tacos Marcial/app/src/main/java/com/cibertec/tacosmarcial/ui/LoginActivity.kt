@@ -31,7 +31,23 @@ class LoginActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val btnGoogleLogin = findViewById<Button>(R.id.btnGoogleLogin)
         val tvRegistrarse = findViewById<TextView>(R.id.tvRegistrarse)
+
+        btnGoogleLogin.setOnClickListener {
+
+            Toast.makeText(this, "Conectando con Google...", Toast.LENGTH_SHORT).show()
+            
+
+            sessionManager.createSession(
+                userId = 999, 
+                name = "Usuario Google", 
+                email = "google.user@gmail.com"
+            )
+            
+            Toast.makeText(this, "Bienvenido, Usuario Google", Toast.LENGTH_SHORT).show()
+            navigateToHome()
+        }
 
         tvRegistrarse.setOnClickListener {
             startActivity(

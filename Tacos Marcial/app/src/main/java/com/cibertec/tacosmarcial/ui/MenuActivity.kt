@@ -105,7 +105,7 @@ class MenuActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this,
-                    CarritoActivity::class.java
+                    ResumenCarritoActivity::class.java
                 )
             )
         }
@@ -114,7 +114,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        // ACTUALIZADO: Mostramos nombre y dirección sin la palabra "Sede"
+
         val nombre = DatosApp.lugarSeleccionado
         val direccion = DatosApp.direccionSeleccionada
 
